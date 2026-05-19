@@ -1,0 +1,193 @@
+/* ===========================
+   SITE HEADER
+=========================== */
+.site-header {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 700px;
+  overflow: hidden;
+}
+
+/* ===========================
+   HERO SECTION
+=========================== */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.hero-impact-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 500px;
+  margin: 30px 0;
+}
+
+/* Background image */
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Dark gradient overlay — left side darker so text is readable */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(10, 10, 10, 0.82) 0%,
+    rgba(10, 10, 10, 0.65) 35%,
+    rgba(10, 10, 10, 0.25) 60%,
+    rgba(10, 10, 10, 0.10) 100%
+  );
+}
+
+/* ===========================
+   HERO CONTENT
+=========================== */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  padding: 0 60px;
+  /* push content down slightly so it sits visually centre of the visible area below navbar */
+  margin-top: 60px;
+}
+
+/* Big heading */
+.hero-title {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.08;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+}
+
+/* Gold / amber highlighted words */
+.hero-title-highlight {
+  color: #C9A227;   /* warm gold matching the design */
+}
+
+/* Subtitle paragraph */
+.hero-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0 0 36px 0;
+}
+
+/* ===========================
+   CTA BUTTONS
+=========================== */
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+/* Filled amber button */
+.btn-primary-hero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 26px;
+  background: #C9A227;
+  color: #1a1a1a;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 18px rgba(201, 162, 39, 0.4);
+}
+
+.btn-primary-hero:hover {
+  background: #e0b82e;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(201, 162, 39, 0.55);
+}
+
+/* Outlined white button */
+.btn-secondary-hero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 26px;
+  background: transparent;
+  color: #ffffff;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  border-radius: 4px;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.btn-secondary-hero:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 768px) {
+  .hero-section {
+    align-items: flex-start;
+  }
+
+  .hero-content {
+    padding: 0 24px;
+    margin-top: 90px;
+    max-width: 100%;
+    height: calc(100vh - 90px);
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    margin-top: auto;
+  }
+
+  .btn-primary-hero, .btn-secondary-hero {
+    width: 100%;
+  }
+
+  .hero-impact-wrapper {
+    margin-top: 30px;
+  }
+}

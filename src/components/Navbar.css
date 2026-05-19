@@ -1,0 +1,364 @@
+/* =============================================
+   NAVBAR — fidèle au design de référence
+============================================= */
+
+/* ── Base ── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 40px;
+  z-index: 1000;
+  transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease, border-bottom 0.4s ease;
+  /* Style Glassmorphism (verre dépoli) avant le scroll */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Au scroll → fond blanc semi-transparent */
+.navbar.scrolled {
+  padding: 10px 40px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.10);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* ── Container ── */
+.nav-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* ── Logo ── */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.nav-logo-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover .nav-logo-img {
+  transform: scale(1.05);
+}
+
+.nav-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.nav-logo-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+}
+
+.navbar.scrolled .nav-logo-title {
+  color: #1a1a1a;
+}
+
+.nav-logo-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  line-height: 1.3;
+  transition: color 0.3s;
+}
+
+.navbar.scrolled .nav-logo-sub {
+  color: #555;
+}
+
+/* ── Nav Menu (desktop) ── */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.nav-links a {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+/* Underline indicator */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background: #C9A227;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
+}
+
+/* Active link — doré */
+.nav-links a.active {
+  color: #C9A227;
+}
+
+/* After scroll */
+.navbar.scrolled .nav-links a {
+  color: #3a3a3a;
+}
+
+.navbar.scrolled .nav-links a:hover {
+  color: #1a1a1a;
+}
+
+.navbar.scrolled .nav-links a.active {
+  color: #C9A227;
+}
+
+/* ── Actions (right) ── */
+.nav-actions {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+/* ── Bouton S'inscrire ── */
+.btn-enroll {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: #C9A227;
+  color: #1a1a1a;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid #C9A227;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 16px rgba(201, 162, 39, 0.35);
+  white-space: nowrap;
+}
+
+.btn-enroll:hover {
+  background: #e0b82e;
+  border-color: #e0b82e;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201, 162, 39, 0.5);
+}
+
+.btn-enroll:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(201, 162, 39, 0.3);
+}
+
+/* Sur fond blanc (après scroll) — inversé : contour or, fond transparent */
+.navbar.scrolled .btn-enroll {
+  background: transparent;
+  color: #C9A227;
+  border-color: #C9A227;
+  box-shadow: none;
+}
+
+.navbar.scrolled .btn-enroll:hover {
+  background: #C9A227;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(201, 162, 39, 0.4);
+}
+
+.heart-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* ── Mobile Toggle ── */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+  z-index: 1100;
+}
+
+.nav-toggle .bar {
+  display: block;
+  width: 26px;
+  height: 2.5px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled .nav-toggle .bar {
+  background: #1a1a1a;
+}
+
+/* Burger → X animation */
+.mobile-open .nav-toggle .bar:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+.mobile-open .nav-toggle .bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.mobile-open .nav-toggle .bar:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .nav-links {
+    gap: 2px;
+  }
+  .nav-links a {
+    font-size: 0.72rem;
+    padding: 6px 8px;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    max-width: 340px;
+    height: 100dvh;
+    background: #fff;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 40px 40px;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -8px 0 30px rgba(0, 0, 0, 0.12);
+    z-index: 1050;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+  }
+
+  .nav-links a {
+    color: #1a1a1a;
+    font-size: 1rem;
+    padding: 14px 0;
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .nav-links a::after {
+    left: 0;
+    right: 0;
+    bottom: -1px;
+  }
+
+  .nav-actions {
+    margin-top: 30px;
+    width: 100%;
+  }
+
+  .btn-don {
+    width: 100%;
+    justify-content: center;
+    color: #C9A227;
+    border-color: #C9A227;
+    padding: 13px 20px;
+  }
+
+  .btn-don:hover {
+    background: #C9A227;
+    color: #fff;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 14px 20px;
+  }
+
+  .nav-logo-img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .nav-logo-title {
+    font-size: 1rem;
+  }
+  
+  .nav-logo-sub {
+    display: none;
+  }
+}

@@ -1,0 +1,14 @@
+-r base.txt
+
+# Serveur WSGI
+gunicorn>=21.0,<22.0
+
+# Cache et tâches asynchrones (optionnel)
+redis>=5.0,<6.0
+celery>=5.3,<6.0
+
+# Monitoring (optionnel)
+sentry-sdk>=2.0,<3.0
+
+# Base de données (production)
+# psycopg2-binary est déjà dans base.txt

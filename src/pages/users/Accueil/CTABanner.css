@@ -1,0 +1,99 @@
+/* ── CTA Banner ── */
+.cta-banner {
+  background: #2d4a35;
+  padding: 20px;
+}
+
+.cta-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.cta-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.cta-heart {
+  font-size: 2rem;
+  color: #C9A227;
+  flex-shrink: 0;
+}
+
+.cta-text h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.cta-text p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.75);
+  margin-top: 4px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-benevole {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 26px;
+  background: #C9A227;
+  color: #1a1a1a;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: background 0.25s ease, transform 0.2s ease;
+  box-shadow: 0 4px 14px rgba(201,162,39,0.35);
+}
+
+.btn-benevole:hover {
+  background: #e0b82e;
+  transform: translateY(-2px);
+}
+
+.btn-membre {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 26px;
+  background: transparent;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid rgba(255,255,255,0.6);
+  border-radius: 50px;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.btn-membre:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .cta-banner { padding: 40px 24px; }
+  .cta-inner { flex-direction: column; align-items: flex-start; }
+}

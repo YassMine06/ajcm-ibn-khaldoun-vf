@@ -1,0 +1,193 @@
+/* =============================================
+   INSCRIPTION PAGE - PREMIUM DESIGN
+============================================= */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.inscription-main {
+  background-color: #f8fcf9;
+  font-family: 'Outfit', sans-serif;
+  padding: 6rem 2rem 8rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inscription-header {
+  text-align: center;
+  max-width: 800px;
+  margin-bottom: 4rem;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.inscription-header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #2e513a;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+
+.inscription-header p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.15rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.inscription-container {
+  width: 100%;
+  max-width: 900px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+  overflow: hidden;
+  animation: fadeInUp 0.8s ease 0.2s forwards;
+  opacity: 0;
+}
+
+.inscription-tabs {
+  display: flex;
+  background: #fdf7e6;
+  border-bottom: 2px solid #f3ca4e;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 1.5rem;
+  background: none;
+  border: none;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #b58d19;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.tab-btn:hover {
+  background: rgba(201, 162, 39, 0.1);
+}
+
+.tab-btn.active {
+  background: white;
+  color: #2e513a;
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #2e513a;
+  border-radius: 4px 4px 0 0;
+}
+
+.form-wrapper {
+  padding: 3rem;
+}
+
+.inscription-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #2e513a;
+  font-size: 0.95rem;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+  padding: 1rem 1.25rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #334155;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+  outline: none;
+  border-color: #C9A227;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.1);
+}
+
+.submit-btn {
+  margin-top: 1rem;
+  background: linear-gradient(135deg, #2e513a 0%, #4a7c59 100%);
+  color: white;
+  border: none;
+  padding: 1.2rem;
+  border-radius: 12px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(46, 81, 58, 0.3);
+}
+
+@media (max-width: 768px) {
+  .inscription-main {
+    padding: 4rem 1.5rem;
+  }
+  .inscription-header h1 {
+    font-size: 2.2rem;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .form-wrapper {
+    padding: 2rem 1.5rem;
+  }
+  .inscription-tabs {
+    flex-direction: column;
+  }
+  .tab-btn.active::after {
+    bottom: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    border-radius: 0;
+  }
+}

@@ -1,0 +1,437 @@
+.annonces-page {
+  background-color: #f8fcf9;
+  min-height: 100vh;
+}
+
+.annonces-main {
+  padding: 5rem 0 8rem;
+}
+
+/* ── True Masonry Grid (Pinterest Style) ── */
+.annonces-masonry-grid {
+  column-count: 4;
+  column-gap: 24px;
+  padding: 10px;
+}
+
+.annonce-grid-item {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(46, 81, 58, 0.08);
+  display: flex;
+  flex-direction: column;
+  break-inside: avoid; /* Prevents card from breaking across columns */
+  margin-bottom: 24px; /* Space below each card */
+}
+
+.annonce-grid-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(46, 81, 58, 0.12);
+  border-color: rgba(46, 81, 58, 0.3);
+}
+
+.annonce-img-wrap {
+  position: relative;
+  width: 100%;
+  background: #f4f8f5;
+  overflow: hidden;
+  /* Removed aspect ratio to allow natural height */
+}
+
+.annonce-img-wrap img {
+  width: 100%;
+  height: auto; /* Let the image dictate its height */
+  display: block; /* Removes bottom space */
+  transition: transform 0.5s ease;
+}
+
+.annonce-grid-item:hover .annonce-img-wrap img {
+  transform: scale(1.05);
+}
+
+.annonce-hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(46, 81, 58, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.annonce-grid-item:hover .annonce-hover-overlay {
+  opacity: 1;
+}
+
+.annonce-hover-overlay svg {
+  width: 48px;
+  height: 48px;
+  color: white;
+  transform: scale(0.5);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.annonce-grid-item:hover .annonce-hover-overlay svg {
+  transform: scale(1);
+}
+
+.annonce-search-bar {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.annonce-search-bar .search-icon {
+  position: absolute;
+  top: 50%;
+  left: 1.25rem;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.annonce-search-bar input {
+  width: 100%;
+  padding: 0.8rem 1.25rem 0.8rem 3rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background-color: white;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.annonce-search-bar input:focus {
+  outline: none;
+  border-color: #4a7c59;
+  box-shadow: 0 4px 12px rgba(74, 124, 89, 0.1);
+}
+
+.annonce-card-body {
+  padding: 1.25rem;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.annonce-card-title {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #0f172a;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: left; /* User image shows left-aligned or standard */
+}
+
+.annonce-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  color: #64748b;
+  flex-wrap: wrap;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.meta-icon {
+  color: #94a3b8;
+}
+
+.meta-icon.date-icon { color: #3b82f6; }
+.meta-icon.loc-icon { color: #ef4444; }
+
+.meta-divider {
+  color: #e2e8f0;
+  font-weight: 200;
+}
+
+.annonce-card-desc {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #64748b;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.annonce-type-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  backdrop-filter: blur(4px);
+}
+
+.annonce-type-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.annonce-type-badge.actualite {
+  background: #4a7c59;
+  color: white;
+}
+
+.annonce-type-badge.evenement {
+  background: #C9A227;
+  color: white;
+}
+
+/* ── Modal / Lightbox ── */
+.annonce-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.annonce-modal-content {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  max-width: 1000px;
+  width: 100%;
+  max-height: 90vh;
+  position: relative;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  animation: scaleUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s;
+}
+
+.modal-close-btn:hover {
+  background: #c0392b;
+  transform: rotate(90deg);
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 90vh;
+}
+
+.modal-body.has-text {
+  flex-direction: row;
+}
+
+.modal-img-container {
+  flex: 1;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 300px;
+}
+
+.modal-img-container img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.modal-body.has-text .modal-img-container img {
+  max-height: 90vh;
+}
+
+.modal-text-container {
+  width: 400px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #eee;
+}
+
+.modal-text-scroll {
+  padding: 40px 30px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-badge {
+  display: inline-block;
+  align-self: flex-end;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.modal-badge.actualite {
+  background: #e8f5e9;
+  color: #4a7c59;
+}
+
+.modal-badge.evenement {
+  background: #fdf7e6;
+  color: #C9A227;
+}
+
+.modal-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  line-height: 1.3;
+  text-align: right;
+  font-family: 'Noto Sans Arabic', 'Tajawal', 'Cairo', sans-serif;
+}
+
+.modal-meta-info {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  font-size: 0.9rem;
+  color: #555;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-meta-info strong {
+  color: #1a1a1a;
+}
+
+.modal-desc {
+  margin-top: 0;
+  flex: 1;
+}
+
+.arabic-text {
+  font-family: 'Noto Sans Arabic', 'Tajawal', 'Cairo', sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #333;
+  direction: rtl;
+  text-align: right;
+  white-space: pre-wrap;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+  .annonces-masonry-grid {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 900px) {
+  .annonces-masonry-grid {
+    column-count: 2;
+  }
+  
+  .modal-body.has-text {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  
+  .modal-img-container {
+    height: 50vh;
+    min-height: auto;
+  }
+  
+  .modal-body.has-text .modal-img-container img {
+    max-height: 50vh;
+  }
+  
+  .modal-text-container {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid #eee;
+  }
+  
+  .modal-text-scroll {
+    padding: 24px;
+    overflow-y: visible; /* Let the parent scroll */
+  }
+  
+  .modal-close-btn {
+    top: 12px;
+    right: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .annonces-masonry-grid {
+    column-count: 1;
+    column-gap: 0;
+  }
+  
+  .annonce-text-preview {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+}

@@ -1,0 +1,133 @@
+/* ═══════════════════════════════════════
+   NOTRE IMPACT — Glassmorphism Grid inside Hero
+═══════════════════════════════════════ */
+
+.impact-section {
+  padding: 0;
+  background: transparent;
+}
+
+.impact-container {
+  width: 100%;
+}
+
+.impact-bar {
+  background: rgba(20, 30, 20, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 15px;
+  padding: 24px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Bloc individuel de stat ── */
+.impact-stat {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: flex-start;
+  z-index: 1;
+}
+
+/* ── Séparateur vertical (caché en mode grille) ── */
+.stat-divider {
+  display: none;
+}
+
+/* ── Icône ── */
+.impact-icon-wrap {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  background: rgba(201, 162, 39, 0.15);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #C9A227; /* Doré */
+  transition: transform 0.3s ease, background 0.3s ease;
+  flex-shrink: 0;
+}
+
+.impact-stat:hover .impact-icon-wrap {
+  transform: translateY(-4px) scale(1.05);
+  background: rgba(201, 162, 39, 0.25);
+}
+
+.impact-icon-wrap svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ── Textes ── */
+.impact-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-number {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .impact-bar {
+    gap: 25px;
+    padding: 30px;
+  }
+  .stat-number {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .impact-bar {
+    grid-template-columns: 1fr 1fr;
+    background: rgba(20, 30, 20, 0.6);
+  }
+}
+
+@media (max-width: 600px) {
+  .impact-bar {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 10px;
+    padding: 16px;
+  }
+  .impact-icon-wrap {
+    width: 35px;
+    height: 35px;
+  }
+  .impact-icon-wrap svg {
+    width: 16px;
+    height: 16px;
+  }
+  .stat-number {
+    font-size: 1.4rem;
+  }
+  .stat-label {
+    font-size: 0.6rem;
+  }
+  .impact-stat {
+    gap: 8px;
+  }
+}

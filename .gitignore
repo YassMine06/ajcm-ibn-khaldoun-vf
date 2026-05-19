@@ -1,0 +1,62 @@
+# Dependency directories
+node_modules/
+/dist
+/dist-ssr
+/build
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+backend/.env
+
+# Python Virtual Environments
+.venv/
+venv/
+env/
+backend/venv/
+backend/env/
+
+# Python Cache & Bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+backend/**/__pycache__/
+backend/**/*.pyc
+
+# Database
+# db.sqlite3
+# *.sqlite3
+# backend/db.sqlite3
+
+# Django Media and Uploads
+# media/
+# backend/media/
+# /static/
+# /staticfiles/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor & System files
+.vscode/
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

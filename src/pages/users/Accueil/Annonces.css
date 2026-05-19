@@ -1,0 +1,178 @@
+/* ── Annonces & Événements Section ── */
+.evt-section {
+  padding: 80px 60px;
+  background: #ffffff;
+}
+
+.evt-container-full {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 50px;
+  background-color: #E6EFE9;
+  border-radius: 20px;
+}
+
+/* ── Scroller Container ── */
+.annonces-scroller-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 20px 0;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.annonces-scroller-track {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+  animation: scrollInfinite 30s linear infinite;
+}
+
+.annonces-scroller-track:hover {
+  animation-play-state: paused;
+}
+
+/* ── Scroller Item ── */
+.scroller-item {
+  flex: 0 0 auto;
+  width: 250px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  cursor: pointer;
+  background: white;
+}
+
+.scroller-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(74, 124, 89, 0.2);
+}
+
+/* ── Scroller Image ── */
+.scroller-img-wrap {
+  width: 100%;
+  aspect-ratio: 4/5;
+  position: relative;
+  overflow: hidden;
+  background: #f4f8f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroller-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.scroller-item:hover .scroller-img-wrap img {
+  transform: scale(1.08);
+}
+
+.scroller-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(46, 81, 58, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.scroller-item:hover .scroller-overlay {
+  opacity: 1;
+}
+
+.scroller-view-text {
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border: 2px solid white;
+  padding: 8px 24px;
+  border-radius: 30px;
+  transform: translateY(20px);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.scroller-item:hover .scroller-view-text {
+  transform: translateY(0);
+}
+
+@keyframes scrollInfinite {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-1400px); } /* 5 cards * (250px width + 30px gap) = 1400px */
+}
+
+/* ── Button ── */
+.btn-agenda {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #1a1a1a;
+  background: #C9A227;
+  padding: 12px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(201, 162, 39, 0.3);
+}
+
+.btn-agenda:hover {
+  background: #e0b82e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(201, 162, 39, 0.4);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .evt-section {
+    padding: 60px 24px;
+  }
+  .evt-container-full {
+    padding: 40px 30px;
+  }
+  .scroller-item {
+    width: 200px;
+  }
+  @keyframes scrollInfinite {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-1150px); }
+  }
+}
+
+@media (max-width: 768px) {
+  .scroller-item {
+    width: 180px;
+  }
+  @keyframes scrollInfinite {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-1050px); }
+  }
+}
+
+@media (max-width: 480px) {
+  .evt-container-full {
+    padding: 24px 15px;
+  }
+  .scroller-item {
+    width: 160px;
+  }
+  @keyframes scrollInfinite {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-950px); }
+  }
+}

@@ -1,0 +1,584 @@
+.event-details-page {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  padding-top: 90px;
+  padding-bottom: 60px;
+}
+
+.event-details-container {
+  max-width: 600px; /* Taille typique d'un post Insta sur desktop */
+  margin: 40px auto 40px;
+  background: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Header du post */
+.insta-header {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid #efefef;
+}
+
+.insta-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #dbdbdb;
+  margin-right: 12px;
+}
+
+[dir="rtl"] .insta-avatar {
+  margin-right: 0;
+  margin-left: 12px;
+}
+
+.insta-author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.insta-author-name {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #262626;
+  text-decoration: none;
+}
+
+.insta-location {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: #8e8e8e;
+  margin-top: 2px;
+}
+
+/* Media */
+.insta-media {
+  width: 100%;
+  aspect-ratio: 4/5; /* Format classique portrait Insta */
+  background-color: #000; /* Fond noir pour encadrer l'image */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.insta-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Contain pour ne pas couper l'image */
+}
+
+.insta-category-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+[dir="rtl"] .insta-category-badge {
+  right: auto;
+  left: 12px;
+}
+
+/* Actions */
+.insta-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px 8px;
+}
+
+.action-icons-left {
+  display: flex;
+  gap: 16px;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #262626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s;
+}
+
+.action-btn:active {
+  transform: scale(0.9);
+}
+
+.action-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.action-btn.liked svg {
+  fill: #ed4956;
+  color: #ed4956;
+}
+
+.copy-feedback {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: #4a7c59;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+  animation: fadeInOut 2s forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Likes info (simulé) */
+.insta-likes {
+  padding: 0 16px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #262626;
+  margin-bottom: 8px;
+}
+
+/* Contenu textuel */
+.insta-content {
+  padding: 0 16px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #262626;
+}
+
+.insta-caption {
+  margin-bottom: 8px;
+}
+
+.insta-caption strong {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+[dir="rtl"] .insta-caption strong {
+  margin-right: 0;
+  margin-left: 6px;
+}
+
+.insta-desc-fr, .insta-desc-ar {
+  margin-bottom: 12px;
+}
+
+.insta-desc-ar {
+  font-family: 'Tajawal', 'Cairo', sans-serif; /* Si dispo, sinon fallback */
+  text-align: right;
+  direction: rtl;
+  font-size: 0.95rem;
+}
+
+.insta-details-list {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #efefef;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.insta-details-list p {
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.insta-details-list strong {
+  color: #262626;
+  width: 90px;
+  display: inline-block;
+}
+
+/* Date de publication simulée */
+.insta-time {
+  padding: 0 16px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: #8e8e8e;
+  letter-spacing: 0.5px;
+}
+
+/* Back button */
+.back-btn-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #4a7c59;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.back-btn:hover {
+  color: #3a6347;
+}
+
+.back-btn svg {
+  margin-right: 6px;
+  width: 18px;
+  height: 18px;
+}
+
+/* Right Panel Structure */
+.insta-right-panel {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+/* Responsive */
+@media (min-width: 800px) {
+  .event-details-container {
+    max-width: 935px; /* Largeur standard Insta Desktop */
+    height: 600px; /* Fixer la hauteur pour éviter le scroll de la page entière */
+    max-height: calc(100vh - 160px);
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .insta-header {
+    display: none; /* Masquer le header global s'il y en a un avant le media, mais on l'a déplacé dans le right-panel */
+  }
+
+  .insta-right-panel .insta-header {
+    display: flex; /* S'assurer qu'il s'affiche dans le panneau droit */
+  }
+
+  .insta-media {
+    flex: 1 1 60%;
+    height: 100%;
+    aspect-ratio: auto;
+    background-color: #000; /* Fond noir pour les images non proportionnelles */
+  }
+
+  .insta-media img {
+    object-fit: contain; /* Adapter l'image pour qu'elle tienne entièrement sans scroll */
+  }
+
+  .insta-right-panel {
+    flex: 1 1 40%;
+    max-width: 400px;
+    border-left: 1px solid #efefef;
+  }
+
+  .insta-right-scrollable {
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+
+  .insta-content {
+    padding-top: 16px;
+  }
+
+  .insta-right-footer {
+    border-top: 1px solid #efefef;
+    background: #fff;
+  }
+}
+
+@media (max-width: 799px) {
+  .event-details-container {
+    margin: 15px 0 20px; /* Reduced top margin since navigation provides spacing */
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .insta-media {
+    aspect-ratio: 1/1; /* Carré sur mobile pour prendre moins de hauteur */
+  }
+  
+  /* On cache le header du panneau droit sur mobile si on l'a mis en haut */
+  /* Wait, the JSX structure moved the header inside insta-right-panel. So we show it always. */
+}
+
+/* Carousel Navigation */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: #262626;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background-color 0.2s, transform 0.2s;
+  z-index: 10;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.prev-btn {
+  left: 12px;
+}
+
+.next-btn {
+  right: 12px;
+}
+
+[dir="rtl"] .prev-btn {
+  left: auto;
+  right: 12px;
+  transform: translateY(-50%) scaleX(-1);
+}
+
+[dir="rtl"] .next-btn {
+  right: auto;
+  left: 12px;
+  transform: translateY(-50%) scaleX(-1);
+}
+
+/* Carousel Dots */
+.carousel-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  z-index: 10;
+}
+
+.carousel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.carousel-dot.active {
+  background-color: #4a7c59; /* AJCM Green */
+  transform: scale(1.3);
+}
+
+/* Top Navigation Between Events */
+.event-navigation-top {
+  max-width: 935px;
+  margin: 20px auto 20px;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.event-nav-btn {
+  display: flex;
+  align-items: center;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #262626;
+  text-decoration: none;
+  transition: color 0.2s, transform 0.2s;
+  background: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid #efefef;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+}
+
+.event-nav-btn:hover {
+  color: #4a7c59;
+  border-color: #4a7c59;
+  transform: translateY(-2px);
+}
+
+.event-nav-btn span {
+  margin: 0 6px;
+}
+
+.event-nav-placeholder {
+  width: 100px; /* Approximate width to keep flex balance */
+}
+
+/* Floating Side Navigation (Desktop) */
+.event-side-nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  color: #262626;
+  font-size: 20px;
+  text-decoration: none;
+  z-index: 100;
+  transition: transform 0.2s, background-color 0.2s, color 0.2s;
+  border: 1px solid #efefef;
+}
+
+.event-side-nav:hover {
+  background-color: #f8f9fa;
+  color: #4a7c59;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.event-side-nav.prev {
+  left: 3%;
+}
+
+.event-side-nav.next {
+  right: 3%;
+}
+
+.mobile-only-nav {
+  display: none; /* Hide bottom prev/next on desktop */
+}
+
+@media (max-width: 1024px) {
+  /* Hide side arrows on smaller screens to avoid overlapping content */
+  .event-side-nav {
+    display: none;
+  }
+  
+  /* Show bottom prev/next arrows instead */
+  .mobile-only-nav {
+    display: block;
+  }
+}
+
+@media (max-width: 799px) {
+  .event-navigation-top {
+    margin-top: 20px;
+    margin-bottom: 0;
+    padding: 0 12px;
+  }
+  
+  .event-nav-btn {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+  
+  .hide-on-mobile {
+    display: none;
+  }
+}
+
+/* Video Support */
+.media-item-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #000;
+  cursor: pointer;
+}
+
+.volume-toggle-btn {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background-color: rgba(0, 0, 0, 0.65);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.2s, transform 0.2s;
+  padding: 6px;
+}
+
+.volume-toggle-btn:hover {
+  background-color: rgba(0, 0, 0, 0.85);
+  transform: scale(1.05);
+}
+
+.volume-toggle-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+[dir="rtl"] .volume-toggle-btn {
+  right: auto;
+  left: 16px;
+}
+
+/* Sub Events Tabs */
+.sub-events-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #efefef;
+  direction: rtl; /* To support Arabic names natively */
+}
+
+.sub-event-tab {
+  background-color: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sub-event-tab:hover {
+  background-color: #f0f0f0;
+}
+
+.sub-event-tab.active {
+  background-color: #4a7c59; /* AJCM Green */
+  color: #fff;
+  border-color: #4a7c59;
+}

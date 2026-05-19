@@ -1,0 +1,69 @@
+
+:root {
+  --primary: #0a4d3c; /* Deep green from logo */
+  --secondary: #d4a017; /* Golden/Sand tone */
+  --accent: #e63946; /* Red/Orange from logo */
+  --bg-dark: #0f172a;
+  --text-light: #f8fafc;
+  --glass: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Accounts for fixed navbar */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .nav-logo {
+  font-family: 'Outfit', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.3s;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: 0.3s;
+}
+
+/* ── Section Titles Global Force ── */
+.section-title, .section-header h2 {
+  font-family: 'Outfit', sans-serif !important;
+  font-size: clamp(1.5rem, 3.5vw, 2rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.04em !important;
+  color: #0a4d3c !important; /* Original Deep Green */
+  margin: 0 !important;
+  text-transform: none !important; /* Allow the code to decide casing */
+}
+
+.section-divider {
+  width: 40px !important;
+  height: 3px !important;
+  background: #C9A227 !important; /* Original Gold */
+  border-radius: 2px !important;
+  /* margin-top: 10px !important; */
+}
